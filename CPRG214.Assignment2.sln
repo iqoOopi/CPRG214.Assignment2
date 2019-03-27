@@ -3,9 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.28307.421
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CPRG214.Assignment2.Domain", "CPRG214.Assignment2.Domain\CPRG214.Assignment2.Domain.csproj", "{CB31BBAD-A909-434F-BB70-04F21B6D2CB6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CPRG214.Assignment2.Domain", "CPRG214.Assignment2.Domain\CPRG214.Assignment2.Domain.csproj", "{CB31BBAD-A909-434F-BB70-04F21B6D2CB6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CPRG214.Assignment2.Data", "CPRG214.Assignment2.Data\CPRG214.Assignment2.Data.csproj", "{63D71BDB-C0C5-42AC-A0BD-4CB84C3104E1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CPRG214.Assignment2.Data", "CPRG214.Assignment2.Data\CPRG214.Assignment2.Data.csproj", "{63D71BDB-C0C5-42AC-A0BD-4CB84C3104E1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CPRG214.Assignment2.BLL", "CPRG214.Assignment2.BLL\CPRG214.Assignment2.BLL.csproj", "{4170D8BF-563C-40B3-86A5-89CFC0694CCC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CPRG214.Assignment2.AssetTracking", "CPRG214.Assignment2.AssetTracking\CPRG214.Assignment2.AssetTracking.csproj", "{AB8473F7-114F-4963-A981-1BAC27F41DE9}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +25,14 @@ Global
 		{63D71BDB-C0C5-42AC-A0BD-4CB84C3104E1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{63D71BDB-C0C5-42AC-A0BD-4CB84C3104E1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{63D71BDB-C0C5-42AC-A0BD-4CB84C3104E1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4170D8BF-563C-40B3-86A5-89CFC0694CCC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4170D8BF-563C-40B3-86A5-89CFC0694CCC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4170D8BF-563C-40B3-86A5-89CFC0694CCC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4170D8BF-563C-40B3-86A5-89CFC0694CCC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AB8473F7-114F-4963-A981-1BAC27F41DE9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AB8473F7-114F-4963-A981-1BAC27F41DE9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AB8473F7-114F-4963-A981-1BAC27F41DE9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AB8473F7-114F-4963-A981-1BAC27F41DE9}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

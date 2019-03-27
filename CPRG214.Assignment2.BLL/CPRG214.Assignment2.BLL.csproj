@@ -1,0 +1,16 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="2.1.8" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\CPRG214.Assignment2.Data\CPRG214.Assignment2.Data.csproj" />
+    <ProjectReference Include="..\CPRG214.Assignment2.Domain\CPRG214.Assignment2.Domain.csproj" />
+  </ItemGroup>
+
+</Project>

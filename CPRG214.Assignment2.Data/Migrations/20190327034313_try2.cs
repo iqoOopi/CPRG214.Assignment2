@@ -44,6 +44,36 @@ namespace CPRG214.Assignment2.Data.Migrations
                         onDelete: ReferentialAction.Cascade);
                 });
 
+            migrationBuilder.InsertData(
+                table: "AssetTypes",
+                columns: new[] { "Id", "Name" },
+                values: new object[] { 1, "Computer" });
+
+            migrationBuilder.InsertData(
+                table: "AssetTypes",
+                columns: new[] { "Id", "Name" },
+                values: new object[] { 2, "Monitors" });
+
+            migrationBuilder.InsertData(
+                table: "AssetTypes",
+                columns: new[] { "Id", "Name" },
+                values: new object[] { 3, "Phone" });
+
+            migrationBuilder.InsertData(
+                table: "Assets",
+                columns: new[] { "Id", "AssetTypeId", "Description", "Manufacturer", "Model", "SerialNumber", "TagNumber" },
+                values: new object[] { 1, 1, "this is computertest", "Dell", "Ispell", "001002", "CompuTest01" });
+
+            migrationBuilder.InsertData(
+                table: "Assets",
+                columns: new[] { "Id", "AssetTypeId", "Description", "Manufacturer", "Model", "SerialNumber", "TagNumber" },
+                values: new object[] { 2, 2, "this is Monitor Test", "HP", "HP1", "002001", "MonitorTest01" });
+
+            migrationBuilder.InsertData(
+                table: "Assets",
+                columns: new[] { "Id", "AssetTypeId", "Description", "Manufacturer", "Model", "SerialNumber", "TagNumber" },
+                values: new object[] { 3, 3, "this is Phone Test", "Cisco", "Cisco01", "003001", "PhoneTest01" });
+
             migrationBuilder.CreateIndex(
                 name: "IX_Assets_AssetTypeId",
                 table: "Assets",
