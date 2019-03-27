@@ -45,12 +45,6 @@ namespace CPRG214.Assignment2.Data.Migrations
                     b.HasIndex("AssetTypeId");
 
                     b.ToTable("Assets");
-
-                    b.HasData(
-                        new { Id = 1, AssetTypeId = 1, Description = "this is computertest", Manufacturer = "Dell", Model = "Ispell", SerialNumber = "001002", TagNumber = "CompuTest01" },
-                        new { Id = 2, AssetTypeId = 2, Description = "this is Monitor Test", Manufacturer = "HP", Model = "HP1", SerialNumber = "002001", TagNumber = "MonitorTest01" },
-                        new { Id = 3, AssetTypeId = 3, Description = "this is Phone Test", Manufacturer = "Cisco", Model = "Cisco01", SerialNumber = "003001", TagNumber = "PhoneTest01" }
-                    );
                 });
 
             modelBuilder.Entity("CPRG214.Assignment2.Domain.AssetType", b =>
@@ -65,12 +59,6 @@ namespace CPRG214.Assignment2.Data.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("AssetTypes");
-
-                    b.HasData(
-                        new { Id = 1, Name = "Computer" },
-                        new { Id = 2, Name = "Monitors" },
-                        new { Id = 3, Name = "Phone" }
-                    );
                 });
 
             modelBuilder.Entity("CPRG214.Assignment2.Domain.Asset", b =>

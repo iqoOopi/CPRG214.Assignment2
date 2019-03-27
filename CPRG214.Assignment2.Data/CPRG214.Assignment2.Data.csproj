@@ -9,6 +9,9 @@
     <Compile Remove="Migrations\20190327031744_InitialDB.cs" />
     <Compile Remove="Migrations\20190327031909_InitialDB.cs" />
     <Compile Remove="Migrations\20190327032253_InitialDB.cs" />
+    <Compile Remove="Migrations\20190327032502_InitialDB.cs" />
+    <Compile Remove="Migrations\20190327033410_Initial.cs" />
+    <Compile Remove="Migrations\20190327033732_try2.cs" />
   </ItemGroup>
 
   <ItemGroup>
