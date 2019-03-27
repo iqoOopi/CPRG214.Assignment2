@@ -18,6 +18,8 @@ namespace CPRG214.Assignment2.Domain
         public string Description { get; set; }
         [Required]
         public string SerialNumber { get; set; }
-        
+
+        public AssetType AssetType { get; set; }
+
     }
 }

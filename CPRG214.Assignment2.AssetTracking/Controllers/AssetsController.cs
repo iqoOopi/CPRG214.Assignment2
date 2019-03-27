@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using CPRG214.Assignment2.BLL;
+using CPRG214.Assignment2.Domain;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -33,12 +34,12 @@ namespace CPRG214.Assignment2.AssetTracking.Controllers
         // POST: Assets/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(IFormCollection collection)
+        public ActionResult Create(Asset ass)
         {
             try
             {
                 // TODO: Add insert logic here
-
+                AssetManager.Add(ass);
                 return RedirectToAction(nameof(Index));
             }
             catch
