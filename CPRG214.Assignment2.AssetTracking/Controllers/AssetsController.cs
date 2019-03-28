@@ -16,11 +16,40 @@ namespace CPRG214.Assignment2.AssetTracking.Controllers
 
 
         // GET: Assets
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(int? assetTypeId)
         {
-            var assets = AssetManager.GetAll().ToList();
+            var assetTypes = AssetTypeManager.GetAll();
+            var list = new SelectList(assetTypes, "Id", "Name");
+            ViewBag.AssetTypes = list;
+            if (assetTypeId == null)
+            {
+                var assets = AssetManager.GetAll().ToList();
+                return View(assets);
+            }
+            else
+            {
+                var assets = AssetManager.GetAllByAssetType((int)assetTypeId);
+                return View(assets);
+            }
+            
+        }
 
-            return View(assets);
+        public async Task<IActionResult> Search(int? assetTypeId)
+        {
+            var assetTypes = AssetTypeManager.GetAll();
+            var list = new SelectList(assetTypes, "Id", "Name");
+            ViewBag.AssetTypes = list;
+            if (assetTypeId == null)
+            {
+                var assets = AssetManager.GetAll().ToList();
+                return View(assets);
+            }
+            else
+            {
+                var assets = AssetManager.GetAllByAssetType((int)assetTypeId);
+                return View(assets);
+            }
+
         }
 
         // GET: Assets/Details/5

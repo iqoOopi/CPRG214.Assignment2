@@ -35,5 +35,15 @@ namespace CPRG214.Assignment2.BLL
             context.Assets.Update(asset);
             context.SaveChanges();
         }
+
+        public static List<Asset> GetAllByAssetType(int assetTypeId)
+        {
+            var context = new AssetContext();
+            var assets =
+                context.Assets.
+                Include(a => a.AssetType).Where(a => a.AssetTypeId == assetTypeId).
+                ToList();
+            return assets;
+        }
     }
 }
