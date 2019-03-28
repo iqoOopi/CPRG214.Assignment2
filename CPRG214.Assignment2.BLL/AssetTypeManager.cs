@@ -22,5 +22,18 @@ namespace CPRG214.Assignment2.BLL
             context.AssetTypes.Add(assType);
             context.SaveChanges();
         }
+
+        public static AssetType Find(int id)
+        {
+            var context = new AssetContext();
+            return (context.AssetTypes.Find(id));
+        }
+
+        public static void Update(AssetType assetType)
+        {
+            var context = new AssetContext();
+            context.AssetTypes.Update(assetType);
+            context.SaveChanges();
+        }
     }
 }

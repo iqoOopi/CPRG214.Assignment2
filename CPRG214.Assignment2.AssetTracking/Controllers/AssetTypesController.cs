@@ -11,67 +11,63 @@ using CPRG214.Assignment2.BLL;
 
 namespace CPRG214.Assignment2.AssetTracking.Controllers
 {
-    public class AssetsController : Controller
+    public class AssetTypesController : Controller
     {
-
-
-        // GET: Assets
+        // GET: AssetTypes
         public async Task<IActionResult> Index()
         {
-            var assets = AssetManager.GetAll().ToList();
-
-            return View(assets);
+            var assetTypes = AssetTypeManager.GetAll().ToList();
+            return View(assetTypes);
         }
 
-        // GET: Assets/Details/5
+        // GET: AssetTypes/Details/5
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null)
             {
                 return NotFound();
             }
-            var assets = AssetManager.GetAll().ToList();
-            var asset = assets.FirstOrDefault(m => m.Id == id);
-            if (asset == null)
+            var assetTypes = AssetTypeManager.GetAll().ToList();
+            var assetType = assetTypes.FirstOrDefault(m => m.Id == id);
+            if (assetType == null)
             {
                 return NotFound();
             }
 
-            return View(asset);
+            return View(assetType);
         }
 
-        // GET: Assets/Create
+        // GET: AssetTypes/Create
         public IActionResult Create()
         {
-            ViewData["AssetTypeId"] = new SelectList(AssetTypeManager.GetAll(), "Id", "Name");
             return View();
         }
 
-        // POST: Assets/Create
+        // POST: AssetTypes/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,TagNumber,AssetTypeId,Manufacturer,Model,Description,SerialNumber")] Asset asset)
+        public async Task<IActionResult> Create([Bind("Id,Name")] AssetType assetType)
         {
             if (ModelState.IsValid)
             {
                 try
                 {
                     // TODO: Add insert logic here
-                    AssetManager.Add(asset);
+                    AssetTypeManager.Add(assetType);
                     return RedirectToAction(nameof(Index));
                 }
                 catch
                 {
-                    return View(asset);
+                    return View();
                 }
             }
-            ViewData["AssetTypeId"] = new SelectList(AssetTypeManager.GetAll(), "Id", "Name", asset.AssetTypeId);
-            return View(asset);
+            return RedirectToAction(nameof(Index));
+
         }
 
-        // GET: Assets/Edit/5
+        // GET: AssetTypes/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
@@ -79,23 +75,22 @@ namespace CPRG214.Assignment2.AssetTracking.Controllers
                 return NotFound();
             }
 
-            var asset = AssetManager.Find((int)id);
-            if (asset == null)
+            var assetType = AssetTypeManager.Find((int)id);
+            if (assetType == null)
             {
                 return NotFound();
             }
-            ViewData["AssetTypeId"] = new SelectList(AssetTypeManager.GetAll(), "Id", "Name", asset.AssetTypeId);
-            return View(asset);
+            return View(assetType);
         }
 
-        // POST: Assets/Edit/5
+        // POST: AssetTypes/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,TagNumber,AssetTypeId,Manufacturer,Model,Description,SerialNumber")] Asset asset)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,Name")] AssetType assetType)
         {
-            if (id != asset.Id)
+            if (id != assetType.Id)
             {
                 return NotFound();
             }
@@ -104,11 +99,11 @@ namespace CPRG214.Assignment2.AssetTracking.Controllers
             {
                 try
                 {
-                    AssetManager.Update(asset);
+                    AssetTypeManager.Update(assetType);
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!AssetExists(asset.Id))
+                    if (!AssetTypeExists(assetType.Id))
                     {
                         return NotFound();
                     }
@@ -119,11 +114,10 @@ namespace CPRG214.Assignment2.AssetTracking.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["AssetTypeId"] = new SelectList(AssetTypeManager.GetAll(), "Id", "Name", asset.AssetTypeId);
-            return View(asset);
+            return View(assetType);
         }
 
-        //// GET: Assets/Delete/5
+        //// GET: AssetTypes/Delete/5
         //public async Task<IActionResult> Delete(int? id)
         //{
         //    if (id == null)
@@ -131,35 +125,32 @@ namespace CPRG214.Assignment2.AssetTracking.Controllers
         //        return NotFound();
         //    }
 
-        //    var asset = await _context.Assets
-        //        .Include(a => a.AssetType)
+        //    var assetType = await _context.AssetTypes
         //        .FirstOrDefaultAsync(m => m.Id == id);
-        //    if (asset == null)
+        //    if (assetType == null)
         //    {
         //        return NotFound();
         //    }
 
-        //    return View(asset);
+        //    return View(assetType);
         //}
 
-        //// POST: Assets/Delete/5
+        //// POST: AssetTypes/Delete/5
         //[HttpPost, ActionName("Delete")]
         //[ValidateAntiForgeryToken]
         //public async Task<IActionResult> DeleteConfirmed(int id)
         //{
-        //    var asset = await _context.Assets.FindAsync(id);
-        //    _context.Assets.Remove(asset);
+        //    var assetType = await _context.AssetTypes.FindAsync(id);
+        //    _context.AssetTypes.Remove(assetType);
         //    await _context.SaveChangesAsync();
         //    return RedirectToAction(nameof(Index));
         //}
 
-
-        private bool AssetExists(int id)
+        private bool AssetTypeExists(int id)
         {
-            bool result = AssetManager.Find(id) == null ? false : true;
+            bool result = AssetTypeManager.Find(id) == null ? false : true;
             return result;
         }
     }
 }
-
 
