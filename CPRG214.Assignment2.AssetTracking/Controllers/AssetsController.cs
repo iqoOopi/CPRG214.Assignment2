@@ -13,13 +13,12 @@ namespace CPRG214.Assignment2.AssetTracking.Controllers
 {
     public class AssetsController : Controller
     {
-
-
         // GET: Assets
         public async Task<IActionResult> Index(int? assetTypeId)
         {
             var assetTypes = AssetTypeManager.GetAll();
             var list = new SelectList(assetTypes, "Id", "Name");
+            //list.Prepend(new SelectList(new AssetType { Name="all"},"Id","Name"));
             ViewBag.AssetTypes = list;
             if (assetTypeId == null)
             {
@@ -38,6 +37,7 @@ namespace CPRG214.Assignment2.AssetTracking.Controllers
         {
             var assetTypes = AssetTypeManager.GetAll();
             var list = new SelectList(assetTypes, "Id", "Name");
+            //list.Prepend(new SelectListItem {Value=null,Text="All"});
             ViewBag.AssetTypes = list;
             if (assetTypeId == null)
             {
