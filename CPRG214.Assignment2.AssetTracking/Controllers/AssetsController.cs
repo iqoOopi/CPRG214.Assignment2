@@ -14,31 +14,25 @@ namespace CPRG214.Assignment2.AssetTracking.Controllers
     public class AssetsController : Controller
     {
         // GET: Assets
-        public async Task<IActionResult> Index(int? assetTypeId)
+        public async Task<IActionResult> Index()
         {
             var assetTypes = AssetTypeManager.GetAll();
-            var list = new SelectList(assetTypes, "Id", "Name");
-            //list.Prepend(new SelectList(new AssetType { Name="all"},"Id","Name"));
-            ViewBag.AssetTypes = list;
-            if (assetTypeId == null)
-            {
+            List<SelectListItem> items = new SelectList(assetTypes, "Id", "Name").ToList();
+            items.Insert(0, (new SelectListItem { Text = "ALL", Value = null }));
+            ViewBag.AssetTypes = items;
+
                 var assets = AssetManager.GetAll().ToList();
                 return View(assets);
-            }
-            else
-            {
-                var assets = AssetManager.GetAllByAssetType((int)assetTypeId);
-                return View(assets);
-            }
+ 
             
         }
 
         public async Task<IActionResult> Search(int? assetTypeId)
         {
             var assetTypes = AssetTypeManager.GetAll();
-            var list = new SelectList(assetTypes, "Id", "Name");
-            //list.Prepend(new SelectListItem {Value=null,Text="All"});
-            ViewBag.AssetTypes = list;
+            List<SelectListItem> items = new SelectList(assetTypes, "Id", "Name").ToList();
+            items.Insert(0, (new SelectListItem { Text = "ALL", Value = null }));
+            ViewBag.AssetTypes = items;
             if (assetTypeId == null)
             {
                 var assets = AssetManager.GetAll().ToList();
